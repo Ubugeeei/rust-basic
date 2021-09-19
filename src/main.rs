@@ -145,4 +145,17 @@ fn main() {
         name: String::from("catcatcat")
     };
     dbg!(&cat.name, &cat.name_len(), cat.weight());
+
+    // closure
+    let add_one_closure = |num: i32| {
+        num + 1
+    };
+    let res = add_one_closure(1);
+    dbg!(res);
+
+    // iter
+    let a = [1, 2, 3];
+    let iter = a.iter().map(|x| 2 * x);
+    let result = iter.collect::<Vec<i32>>();
+    dbg!(result);
 }
