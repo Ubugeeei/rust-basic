@@ -20,7 +20,6 @@ fn main() {
 
     dbg!(_string, _slice, _char, _isize, _usize, _float, _bite, _bin, _hex, _tuple, _array, _vec);
 
-
     // function
     fn func() {
         println!("hello from func");
@@ -76,16 +75,16 @@ fn main() {
     let flag = true;
     let message = match flag {
         true => "OK",
-        false => "NG"
+        false => "NG",
     };
     dbg!(message);
 
     // struct
     struct Animal {
-        name: String
+        name: String,
     }
     let cat = Animal {
-        name: String::from("cat")
+        name: String::from("cat"),
     };
     println!("cat name:{:?}", &cat.name);
 
@@ -101,7 +100,7 @@ fn main() {
     #[derive(Debug)]
     enum ENUM {
         El1,
-        El2
+        El2,
     }
     let x = ENUM::El1;
     let y = ENUM::El2;
@@ -117,10 +116,15 @@ fn main() {
     fn print_optional_value(optional: Option<i32>) {
         match optional {
             None => println!("no value!"),
-            Some(i) => println!("value is {}", i)
+            Some(i) => println!("value is {}", i),
         }
     }
     print_optional_value(optional);
 
-
+    // generics
+    fn add<T: std::ops::Add<Output = T>>(a: T, b: T) -> T {
+        a + b
+    }
+    let res = add(1 as i128, 2 as i128);
+    dbg!(res);
 }
