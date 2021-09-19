@@ -13,7 +13,13 @@ fn main() {
     let _bite = b'a';
     let _bin = 0b1111_0000_1011_1110;
     let _hex = 0x34ae;
-    dbg!(_string, _slice, _char, _isize, _usize, _float, _bite, _bin, _hex);
+
+    let _tuple = (1, "a");
+    let _array = [1, 2, 3, 4];
+    let _vec = vec![1, 2, 3, 4];
+
+    dbg!(_string, _slice, _char, _isize, _usize, _float, _bite, _bin, _hex, _tuple, _array, _vec);
+
 
     // function
     fn func() {
@@ -65,4 +71,39 @@ fn main() {
     for el in 1..5 {
         dbg!(el);
     }
+
+    // pattern math
+    let flag = true;
+    let message = match flag {
+        true => "OK",
+        false => "NG"
+    };
+    dbg!(message);
+
+    // struct
+    struct Animal {
+        name: String
+    }
+    let cat = Animal {
+        name: String::from("cat")
+    };
+    println!("cat name:{:?}", &cat.name);
+
+    // method
+    impl Animal {
+        fn get_name_len(&self) -> usize {
+            self.name.len()
+        }
+    }
+    println!("cat name:{:?}", &cat.get_name_len());
+
+    // enum
+    #[derive(Debug)]
+    enum ENUM {
+        El1,
+        El2
+    }
+    let x = ENUM::El1;
+    let y = ENUM::El2;
+    dbg!(x, y);
 }
