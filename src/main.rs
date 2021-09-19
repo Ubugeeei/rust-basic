@@ -127,4 +127,22 @@ fn main() {
     }
     let res = add(1 as i128, 2 as i128);
     dbg!(res);
+
+    // trait
+    trait Creature {
+        fn name_len(&self) -> i32 { return 0 }
+        fn weight(&self) -> i32 { return 0 }
+    }
+    #[derive(Debug)]
+    struct Cat {
+        name: String
+    }
+    impl Creature for Cat {
+        fn name_len(&self) -> i32 { self.name.len() as i32 }
+        fn weight(&self) -> i32 { 3 }
+    }
+    let cat = Cat {
+        name: String::from("catcatcat")
+    };
+    dbg!(&cat.name, &cat.name_len(), cat.weight());
 }
