@@ -106,4 +106,21 @@ fn main() {
     let x = ENUM::El1;
     let y = ENUM::El2;
     dbg!(x, y);
+
+    // Option
+    let mut optional_num: Option<i32> = None;
+    dbg!(optional_num);
+    optional_num = Some(2);
+    dbg!(optional_num.unwrap());
+    // option & match
+    let optional: Option<i32> = None;
+    fn print_optional_value(optional: Option<i32>) {
+        match optional {
+            None => println!("no value!"),
+            Some(i) => println!("value is {}", i)
+        }
+    }
+    print_optional_value(optional);
+
+
 }
